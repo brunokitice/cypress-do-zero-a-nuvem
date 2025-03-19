@@ -1,0 +1,11 @@
+{
+    "js": {
+      "max_preserve_newlines": 2,
+      "preserve_newlines": true,
+      "break_chained_methods": true,
+      "indent_size": 2,
+      "wrap_line_length": 80,
+      "unindent_chained_methods": false
+    }
+  }
+  
