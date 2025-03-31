@@ -23,28 +23,32 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone').as('phone').type('34996344406');
     cy.get('@phone').should('have.value', '34996344406');
     /// Select an <option> within a <select>
-    cy.get('select').select(1);
-    cy.get('select').select(2);
-    cy.get('select').select(3);
-    cy.get('select').select(4);
+    cy.get('#product').as('blog').select('blog');
+    cy.get('@blog').should('have.value', 'blog');
+    cy.get('#product').as('cursos').select('cursos');
+    cy.get('@cursos').should('have.value', 'cursos');
+    cy.get('#product').as('mentoria').select('mentoria');
+    cy.get('@mentoria').should('have.value', 'mentoria');
+    cy.get('#product').as('youtube').select('youtube');
+    cy.get('@youtube').should('have.value', 'youtube');
     /// click checkbox or radio elements
     /// Click a DOM element
     /// By default, Cypress will error if you're trying to click multiple elements. By passing { multiple: true } Cypress will iteratively apply the click to each element and will also log to the Command Log multiple times
     cy.get('#support-type > :nth-child(2) > input').as('ajuda');
     cy.get('@ajuda')
-      .click({
+      .check({
         multiple: true,
       })
       .should('have.value', 'ajuda');
     cy.get(':nth-child(3) > input').as('elogio');
     cy.get('@elogio')
-      .click({
+      .check({
         multiple: true,
       })
       .should('have.value', 'elogio');
     cy.get(':nth-child(4) > input').as('feedback');
     cy.get('@feedback')
-      .click({
+      .check({
         multiple: true,
       })
       .should('have.value', 'feedback');
@@ -82,7 +86,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#firstName').as('nome').type('Bruno');
     cy.get('#lastName').as('sobrenome').type('Kitice');
     cy.get('#email').as('email').type('brunokitice@gmail.com');
-    cy.get('#phone-checkbox').as('phone').click();
+    cy.get('#phone-checkbox').as('phone').check();
     cy.get('#open-text-area').as('textArea');
     cy.get('textArea').type('teste');
     cy.contains('button', 'Enviar').click();
@@ -105,7 +109,27 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.fillMandatoryFieldsAndSubmit();
     cy.get('.success').as('msgsucesso').should('be.visible');
   });
-  it.only('seleciona um produto (YouTube) por seu texto'), () => {
-    cy.get('select').select(1);
-  };
+  it('seleciona um produto (YouTube) por seu texto', () => {
+    cy.get('#product').select('YouTube').should('have.value', 'youtube');
+  });
+  it('seleciona um produto (Mentoria) por seu valor (value)', () => {
+    cy.get('#product').select('mentoria').should('have.value', 'mentoria');
+  });
+  it('seleciona um produto (Blog) por seu índice', () => {
+    cy.get('#product').select(1).should('have.value', 'blog');
+  });
+  it('marca o tipo de atendimento "Feedback"', () => {
+    cy.get('input[type="radio"][value="feedback"]').check().should('be.checked');
+  });
+  it('marca cada tipo de atendimento', () => {
+    cy.get('input[type="radio"]').each((typeOfService) => {
+      cy.wrap(typeOfService).check().should('be.checked');
+    });
+  });
+  it.only('marca ambos checkboxes, depois desmarca o último', () => {
+    cy.get('input[type="checkbox"]').check();
+    cy.get('input[type="checkbox"]').each(checkbox => {
+      expect(checkbox[0].checked).to.equal(true);
+    }).last().uncheck().should('not.be.checked');
+  });
 });
