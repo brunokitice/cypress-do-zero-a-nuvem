@@ -23,14 +23,10 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone').as('phone').type('34996344406');
     cy.get('@phone').should('have.value', '34996344406');
     /// Select an <option> within a <select>
-    cy.get('#product').as('blog').select('blog');
-    cy.get('@blog').should('have.value', 'blog');
-    cy.get('#product').as('cursos').select('cursos');
-    cy.get('@cursos').should('have.value', 'cursos');
-    cy.get('#product').as('mentoria').select('mentoria');
-    cy.get('@mentoria').should('have.value', 'mentoria');
-    cy.get('#product').as('youtube').select('youtube');
-    cy.get('@youtube').should('have.value', 'youtube');
+    cy.get('select').select(1);
+    cy.get('select').select(2);
+    cy.get('select').select(3);
+    cy.get('select').select(4);
     /// click checkbox or radio elements
     /// Click a DOM element
     /// By default, Cypress will error if you're trying to click multiple elements. By passing { multiple: true } Cypress will iteratively apply the click to each element and will also log to the Command Log multiple times
@@ -61,7 +57,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#open-text-area').as('textArea');
     cy.get('textArea').type(longText, { delay: 0 }).should('have.value', longText);
     /// Click no botão de envio
-    cy.get('.button[type="submit"]').as('enviar').click();
+    cy.contains('button', 'Enviar').click();
     /// verifica se a mensagem de sucesso está visível
     cy.get('.success').as('msgsucesso').should('be.visible');
     /// valida a mensagem de sucesso
@@ -74,7 +70,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone').as('phone').type('34996344406');
     cy.get('#open-text-area').as('textArea');
     cy.get('textArea').type('teste');
-    cy.get('.button[type="submit"]').as('enviar').click();
+    cy.contains('button', 'Enviar').click();
     cy.get('.error').as('msgerror').should('be.visible');
   });
 
@@ -89,7 +85,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#phone-checkbox').as('phone').click();
     cy.get('#open-text-area').as('textArea');
     cy.get('textArea').type('teste');
-    cy.get('.button[type="submit"]').as('enviar').click();
+    cy.contains('button', 'Enviar').click();
     cy.get('.error').as('msgerror').should('be.visible');
   });
 
@@ -101,12 +97,15 @@ describe('Central de Atendimento ao Cliente TAT', () => {
   });
 
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
-    cy.get('.button[type="submit"]').as('enviar').click();
+    cy.contains('button', 'Enviar').click();
     cy.get('.error').as('msgerror').should('be.visible');
   });
 
-  it.only('envia o formuário com sucesso usando um comando customizado', () => {
+  it('envia o formuário com sucesso usando um comando customizado', () => {
     cy.fillMandatoryFieldsAndSubmit();
     cy.get('.success').as('msgsucesso').should('be.visible');
   });
+  it.only('seleciona um produto (YouTube) por seu texto'), () => {
+    cy.get('select').select(1);
+  };
 });
