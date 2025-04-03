@@ -66,7 +66,6 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('.success').as('msgsucesso').should('be.visible');
     /// valida a mensagem de sucesso
   });
-
   it('exibe mensagem de erro ao submeter o formulário com um email com formatação inválida', () => {
     cy.get('#firstName').as('nome').type('Bruno');
     cy.get('#lastName').as('sobrenome').type('Kitice');
@@ -77,11 +76,9 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.contains('button', 'Enviar').click();
     cy.get('.error').as('msgerror').should('be.visible');
   });
-
   it('verifica se o telefone só aceita números', () => {
     cy.get('#phone').as('phone').type('qwrqwerzfasdfa.,-+').should('have.value', '');
   });
-
   it('exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário', () => {
     cy.get('#firstName').as('nome').type('Bruno');
     cy.get('#lastName').as('sobrenome').type('Kitice');
@@ -99,12 +96,10 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     cy.get('#email').as('email').type('brunokitice@gmail.com').should('have.value', 'brunokitice@gmail.com').clear().should('have.value', '');
     cy.get('#phone').as('phone').type('34996344406').should('have.value', '34996344406').clear().should('have.value', '');
   });
-
   it('exibe mensagem de erro ao submeter o formulário sem preencher os campos obrigatórios', () => {
     cy.contains('button', 'Enviar').click();
     cy.get('.error').as('msgerror').should('be.visible');
   });
-
   it('envia o formuário com sucesso usando um comando customizado', () => {
     cy.fillMandatoryFieldsAndSubmit();
     cy.get('.success').as('msgsucesso').should('be.visible');
@@ -126,10 +121,21 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       cy.wrap(typeOfService).check().should('be.checked');
     });
   });
-  it.only('marca ambos checkboxes, depois desmarca o último', () => {
+  it('marca ambos checkboxes, depois desmarca o último', () => {
     cy.get('input[type="checkbox"]').check();
-    cy.get('input[type="checkbox"]').each(checkbox => {
-      expect(checkbox[0].checked).to.equal(true);
-    }).last().uncheck().should('not.be.checked');
+    cy.get('input[type="checkbox"]')
+      .each((checkbox) => {
+        expect(checkbox[0].checked).to.equal(true);
+      })
+      .last()
+      .uncheck()
+      .should('not.be.checked');
+  });
+  it('seleciona um arquivo da pasta fixtures', () => {
+    cy.get('#file-upload')
+      .selectFile('./cypress/fixtures/example.json')
+      .should((file) => {
+        expect(file[0].files[0].name).to.equal('example.json');
+      });
   });
 });
