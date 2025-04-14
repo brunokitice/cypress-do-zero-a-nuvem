@@ -1,28 +1,19 @@
-# 🌲 Cypress, do Zero à Nuvem ☁️
+# 🌲 Cypress – Do Zero à Nuvem ☁️
 
-👋 Seja bem-vindo(a)!
+👋 Olá!
 
-É muito bom tê-lo(a) aqui. Tenho certeza que você vai amar esse curso. ❤️
+Este repositório é resultado do curso **Cypress, do Zero à Nuvem**, oferecido pela **Escola Talking About Testing**. Durante esse percurso, tive a oportunidade de explorar a fundo o Cypress, uma das ferramentas mais populares para automação de testes end-to-end em aplicações web.
 
-## O que você vai aprender?
+## O que eu aprendi?
 
-- Como configurar um projeto Cypress do zero
-- Como visitar páginas locais e remotas
-- Como lidar com os elementos mais comuns encontrados em aplicações web
-- Como testar upload de arquivos
-- Como realizar as mais diversas verificações de resultados esperados
-- Como criar comandos customizados
-- Como lidar com links que abrem em outra aba do navegador
-- Como rodar testes simulando as dimensões de um dispositivo móvel
-- Como resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
-- Como criar uma documentação mínima para seu projeto de testes automatizados
-- Como executar os testes em um _workflow_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
-- Como integrar seu _workflow_ de integração contínua com o Cypress Cloud (o serviço de gestão de testes do Cypress na nuvem)
+✅ Como configurar um projeto Cypress do zero, incluindo a estrutura ideal de pastas e arquivos.  
+✅ Como visitar páginas locais e remotas, entendendo os comandos fundamentais para navegação e validação.  
+✅ Como interagir com os elementos mais comuns de uma aplicação, como inputs, botões, selects, checkboxes, etc.  
+✅ Como realizar upload de arquivos nos testes automatizados.  
+✅ Como verificar resultados esperados, tanto na interface quanto em requisições e respostas de APIs.  
+✅ Como criar comandos customizados para tornar os testes mais limpos, reutilizáveis e organizados.  
+✅ Como lidar com links que abrem em novas abas, evitando que isso quebre o fluxo dos testes.   
 
-## Vamos começar?
+---
 
-Vá para a seção [estrutura do curso](./lessons/_course-structure_.md).
-
-___
-
-Este é um curso da **Escola Talking About Testing**.
+📚 Curso: Cypress – Do Zero à Nuvem    
