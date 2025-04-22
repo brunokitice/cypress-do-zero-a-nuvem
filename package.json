@@ -1,28 +1,24 @@
 {
   "name": "cypress-do-zero-a-nuvem",
   "version": "1.0.0",
-  "description": "Curso 'Cypress, do Zero à Nuvem' da Escola Talking About Testing.",
+  "description": "Projeto baseado no curso 'Cypress, do Zero à Nuvem'. Modificado para estudos pessoais.",
   "main": "src/index.html",
   "scripts": {
     "cy:open": "cypress open",
-    "test": "cypress run"
+    "test": "cypress run",
+    "cy:open:mobile": "cypress open --config viewportWidth=410,viewportHeight=860",
+    "cy:headless:mobile": "cypress run --config viewportWidth=410,viewportHeight=860"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wlsf82/cypress-do-zero-a-nuvem.git"
+    "url": "git+https://github.com/brunokitice/cypress-do-zero-a-nuvem.git"
   },
-  "keywords": [
-    "Testing",
-    "Cypress.io",
-    "Talking About Testing",
-    "Cypress, do Zero à Nuvem",
-    "Cypress Cloud",
-    "GitHub Actions",
-    "Escola TAT"
-  ],
-  "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
+  "author": "Bruno Moragas Kitice",
   "license": "MIT",
-  "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme",
+  "homepage": "https://github.com/brunokitice/cypress-do-zero-a-nuvem#readme",
+  "contributors": [
+  "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)"
+  ],
   "devDependencies": {
     "cypress": "^13.12.0"
   }
