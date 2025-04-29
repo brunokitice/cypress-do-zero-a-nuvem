@@ -16,6 +16,8 @@
 ✅ Como simular diferentes tamanhos de tela, testando o comportamento responsivo da aplicação.  
 ✅ Como resolver problemas de diferentes formas, explorando os recursos e possibilidades da [API do Cypress](https://docs.cypress.io/api/table-of-contents).  
 ✅ Como documentar minimamente um projeto de testes para facilitar a colaboração.  
+✅ Como executar os testes em um workflow de integração contínua, garantindo que tudo seja validado a cada nova mudança.  
+✅ Como integrar esse workflow com o **Cypress Cloud**, aproveitando recursos avançados como histórico de execuções, vídeos e relatórios na nuvem.
 
 ---
 
