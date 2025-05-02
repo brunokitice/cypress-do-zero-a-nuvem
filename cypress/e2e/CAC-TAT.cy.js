@@ -254,7 +254,7 @@ describe('Central de Atendimento ao Cliente TAT', () => {
     /// NÃO FUNCIONAL - cy.get('@getRequest').its('body').should('include', 'CAC TAT');
   });
 
-  it.only('desafio final - ache o gato', () => {
+  it('desafio final - ache o gato', () => {
     cy.get('#cat').invoke('show').should('be.visible');
     cy.get('#title').invoke('text', 'CAT TAT');
     cy.get('#subtitle').invoke('text', 'teste de alteração subtitle');
